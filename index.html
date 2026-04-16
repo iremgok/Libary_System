@@ -1,41 +1,102 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Libary Managment System</title>
-        <link rel="stylesheet" href="style.css">
-    </head>
-    <body>
-        <div class="container">
-            <div class="form-box" id="loginForm">
-                <h1>Welcome</h1>
-                <p>Please log in with your library account.</p>
-                <div class="input-group">  
-                    <input type="text" placeholder="User Name" required>
-                    <input type="password" placeholder="Password" required>
-                </div>
-                <button class="main-btn" onclick="toggleForm()">Log in</button>
-                <p class="signup-text"> Don't have an account?<span onclick=toggleForm()> Sign Up</span></p>
+<head>
+    <title>Library Management System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container" id="authContainer">
+        <div class="form-box" id="loginForm">
+            <h1>Welcome</h1>
+            <p>Please log in with your library account.</p>
+            <div class="input-group">  
+                <input type="text" placeholder="User Name" required>
+                <input type="password" placeholder="Password" required>
             </div>
-
-            <div class="form-box hidden" id="registerForm">
-                <h2>Create a New Membership</h2>
-                <div class="input-group">
-                    <input type="text" placeholder="User Name" required>
-                    <input type="phone" placeholder="Phone" required>
-                    <input type="email" placeholder="E-mail" required>
-                    <input type="password" placeholder="Password" required>
-                    <input type="password" placeholder="Password Again" required>
-                </div>
-                <button class="main-btn">Complete Registration</button>
-                <button class="back-link" onclick="toggleForm()">Go Back</button>
-            </div>
+            <button class="main-btn" onclick="login()">Log in</button>
+            <p class="signup-text"> Don't have an account?<span onclick="toggleForm()"> Sign Up</span></p>
         </div>
-        
-        <script>
-            function toggleForm(){
-                document.getElementById("loginForm").classList.toggle('hidden');
-                document.getElementById("registerForm").classList.toggle('hidden');
-            }
-        </script>
-    </body>
+
+        <div class="form-box hidden" id="registerForm">
+            <h2>Create a New Membership</h2>
+            <div class="input-group">
+                <input type="text" placeholder="User Name" required>
+                <input type="phone" placeholder="Phone" required>
+                <input type="email" placeholder="E-mail" required>
+                <input type="password" placeholder="Password" required>
+                <input type="password" placeholder="Password Again" required>
+            </div>
+            <button class="main-btn" onclick="login()">Complete Registration</button>
+            <button class="back-link" onclick="toggleForm()">Go Back</button>
+        </div>
+    </div>
+
+    <div class="hidden" id="homePage">
+        <nav class="navbar">
+            <div class="menu-icon" onclick="toggleSidebar()">☰</div>
+            <div class="profile-icon" onclick="showProfile()">
+                <img src="https://ui-avatars.com/api/?name=Irem+Gok&background=random" alt="Profile" style="border-radius: 50%;">
+            </div>
+        </nav>
+
+        <aside class="sidebar" id="sidebar">
+            <a href="#">Book List</a>
+            <a href="#">Things I Borrowed</a>
+            <a href="#">My Favorites</a>
+        </aside>
+
+        <main class="home-content">
+            <div class="search-box">
+                <input type="text" placeholder="Search for books...">
+                <button>Search</button>
+            </div>
+        </main>
+    </div>
+
+    <div class="hidden" id="profilePage">
+        <div class="profile-container">
+            <div class="profile-header">
+                <div class="avatar-wrapper">
+                    <img src="https://ui-avatars.com/api/?name=Irem+Gok&background=0D8ABC&color=fff&size=100" id="profileImg">
+                    <span class="edit-icon">✎</span>
+                </div>
+            </div>
+            <div class="profile-details">
+                <div class="detail-item"><span>User Name:</span> <input type="text" value="İrem"></div>
+                <div class="detail-item"><span>Gender:</span> <input type="text" value="Female"></div>
+                <div class="detail-item"><span>Language:</span> <input type="text" value="English"></div>
+                <div class="detail-item"><span>Password:</span> <input type="password" placeholder="Enter New Password"></div>
+            </div>
+            <button class="main-btn" style="background-color: #201a56; margin-top: 20px;" onclick="logout()">Logout</button>
+        </div>
+    </div>
+
+    <script>
+        function toggleForm(){
+            document.getElementById("loginForm").classList.toggle('hidden');
+            document.getElementById("registerForm").classList.toggle('hidden');
+        }
+
+        function login(){
+            document.getElementById("authContainer").classList.add("hidden");
+            document.getElementById("homePage").classList.remove("hidden");
+            document.getElementById("profilePage").classList.add("hidden");
+        }
+
+        function toggleSidebar(){
+            document.getElementById("sidebar").classList.toggle("active");
+        }
+
+        function showProfile() {
+            document.getElementById("homePage").classList.add("hidden");
+            document.getElementById("profilePage").classList.remove("hidden");
+        }
+
+        function logout() {
+            document.getElementById("profilePage").classList.add("hidden");
+            document.getElementById("homePage").classList.add("hidden");
+            document.getElementById("authContainer").classList.remove("hidden");
+        }
+    </script>
+</body>
 </html>
