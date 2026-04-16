@@ -80,3 +80,20 @@ p{
 .hidden{
     display: none;
 }
+
+.signup-text {
+    margin-top: 15px;
+    font-size: 0.9rem;
+    color: #ffffff
+}
+
+.signup-text span{
+    color: #3498db;
+    text-decoration: underline;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.signup-text span:hover{
+    color: #2980b9
+}
