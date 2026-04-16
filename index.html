@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Libary Managment System</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div class="container">
+            <div class="form-box" id="loginForm">
+                <h1>Welcome</h1>
+                <p>Please log in with your library account.</p>
+                <div class="input-group">  
+                    <input type="text" placeholder="User Name" required>
+                    <input type="password" placeholder="Password" required>
+                </div>
+                <button class="main-btn" onclick="toggleForm()">Log in</button>
+            </div>
+
+            <div class="form-box hidden" id="registerForm">
+                <h2>Create a new membership</h2>
+                <div class="input-group">
+                    <input type="text" placeholder="User Name" required>
+                    <input type="phone" placeholder="Phone" required>
+                    <input type="email" placeholder="E-mail" required>
+                    <input type="password" placeholder="Password" required>
+                    <input type="password" placeholder="Password Again" required>
+                </div>
+                <button class="main-btn">Complete Registration</button>
+                <button class="back-link" onclick="toggleForm()">Go Back</button>
+            </div>
+        </div>
+        
+        <script>
+            function toggleForm(){
+                document.getElementById("loginForm").classList.toggle('hidden');
+                document.getElementById("registerForm").classList.toggle('hidden');
+            }
+        </script>
+    </body>
+</html>
