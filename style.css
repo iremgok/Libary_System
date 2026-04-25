@@ -101,11 +101,13 @@ p{
 
 .navbar {
     position: fixed;
-    top: 20px;
+    top: 0;
+    left: 0;
     width: 100%;
     display: flex;
     justify-content: space-between;
-    padding: 0 50px;
+    align-items: center;
+    padding: 15px 30px;
     z-index: 1000;
 }
 
@@ -115,12 +117,19 @@ p{
     cursor: pointer;
 }
 
+.profile-icon {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
 .profile-icon img {
     width: 50px;
     height: 50px;
     border-radius: 50%; 
     border: 2px solid #2ecc71;
     cursor: pointer;
+    object-fit: cover;
 }
 
 .sidebar {
@@ -177,6 +186,7 @@ p{
     cursor: pointer;
     font-weight: bold;
     transition: 0.3s;
+    padding: 20px 30px;
 }
 
 .search-box button:hover {
